@@ -1,0 +1,153 @@
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    bottom: 0;
+}
+
+.block1 {
+    width: 100%;
+}
+
+.container {
+    max-width: 1600px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+.parent {
+    width: 100%;
+    height: 600px;
+    background-color: orange;
+    margin-bottom: 40px;
+
+    /* Flex initialization. Can also be inline-flex */
+    display: flex;
+
+    /* Defining direction of flex items. "row" is default. Can also be: row-reverse | column | column-reverse */
+    flex-direction: row;
+
+    /* Flex items will wrap onto multiple lines, from top to bottom; */
+    /* Default is nowrap (items get sqeezed); Can also be wrap-reverse; */
+    flex-wrap: wrap;
+
+    /* Shorthand for the flex-direction and flex-wrap properties */
+    flex-flow: row wrap;
+
+    /* Defines the alignment along the x-axis. */
+    /* Can be: flex-start (default) | flex-end | center | space-between | space-around | space-evenly; */
+    justify-content: flex-start;
+
+    /* Aligns ITEMS along the y-axis  */
+    /* Can be: stretch | flex-start | flex-end | center | baseline */
+    align-items: center;
+
+    /* ALigns LINES if there is extra space in container height */
+    /* Can be: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch */
+    /* NOTE: Meaningless if parent's height is not set */
+    align-content: center;
+
+    /* Controls the space between flex items. */
+    /* First parameter: top/bottom. Second parameter: left/right. */
+    gap: 15px 20px;
+    /* row-gap: 10px;
+    column-gap: 20px; */
+}
+
+.child {
+    width: 200px;
+
+    /* NOTE: flex will force children to fill container height if child's height is unset.*/
+    /* height: 200px; */
+    background-color: green;
+    padding: 10px;
+    /* margin: 10px; */
+    border: 2px solid black;
+}
+
+.child1_1 {
+    height: 50px;
+}
+.child1_2 {
+    height: 100px;
+}
+.child1_3 {
+    height: 75px;
+}
+.child1_4 {
+    height: 150px;
+}
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+.parent2 {
+    width: 100%;
+    height: 600px;
+    background-color: lightblue;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.child2 {
+    /* width: 200px; */
+    height: 200px;
+    min-width: 150px;
+    background-color: yellow;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+
+    /*
+    This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. 
+    It dictates what amount of the available space inside the flex container the item should take up.
+
+    If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. 
+    If one of the children has a value of 2, that child would take up twice as much of the space either one of the others 
+    (or it will try, at least).*/
+
+    /* 0 is default; Will be content width or min-width (if set) */
+    /* If all items are set to 1 - space will be distributed evenly between them. */
+    /* flex-grow: 1; */
+
+    /* This defines the ability for a flex item to shrink if necessary. */
+    /* 1 is default; */
+    /* flex-shrink: 1; */
+
+    /* This defines the default size of an element before the remaining space is distributed. 
+    It can be a length (e.g. 20%, 5rem, etc.) If set to 0, the extra space around content isn’t 
+    factored in. If set to auto, the extra space is distributed based on its flex-grow value. */
+    /* flex-basis: auto; */
+
+    /* This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and 
+    third parameters (flex-shrink and flex-basis) are optional. The default is 0 1 auto.
+    It is recommended to use this shorthand property. */
+    flex: 0 1 auto;
+}
+
+.child2_1 {
+    /* flex-grow: 2; */
+}
+.child2_2 {
+}
+.child2_3 {
+}
+.child2_4 {
+}
+
+@media screen and (max-width: 1920px) {
+    .container {
+        max-width: 1170px;
+    }
+}
